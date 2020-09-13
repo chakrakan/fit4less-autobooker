@@ -10,6 +10,8 @@ Fit4Less allows you to book time-slots either daily, one-day ahead, or two-days 
 
 ## How?
 
+#### Cron Setup
+
 1. Fork this repo
 2. Set it up as a project on CircleCI
 3. Check project settings on CircleCI and configure Environment Variables as following:
@@ -21,11 +23,15 @@ F4L_PASSWORD=your password
 TIME_SLOT=10:00 AM
 ENVIRONMENT=prod
 ```
+4. Run the build on CircleCI and check the logs under Install & Run for the build steps
+
 **Notes** 
 > - You can change `DAYS` between 2, 1, 0 (check .env.example)  
 > - Please keep `WEBDRIVER_PATH` exactly as shown above since that's the path to driver in the docker container  
-> - `TIME_SLOT` doesn't need quotes for the space between the time and AM/PM as opposed to running it locally  
-4. Run the build on CircleCI and check the logs under Install & Run for the build steps
+> - `TIME_SLOT` doesn't need quotes for the space between the time and AM/PM as opposed to running it locally
+> - the time slot will be booked for the default selected gym under your account prior to running the script
+> - there's no error handling so it either reserves your slot if it finds the timing, or you'll see an exception thrown, or skipped timings in your CircleCI logs
+> - Skipped timings means it didn't find your time slot, Exception means you've already booked max amount of slots
 
 
 #### Local
