@@ -21,4 +21,4 @@ You can fork this repo if you want to set-up your own cron job that books time-s
 4. ???
 5. Profit!
 
-> NOTE: You can't book consecutive slots for the same day! One day/one slot is the rule from Fit4Less.
+> Note: You can't book consecutive slots for the same day! One day/one slot is the rule from Fit4Less.

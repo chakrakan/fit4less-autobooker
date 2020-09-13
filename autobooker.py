@@ -7,7 +7,7 @@ from selenium.webdriver.common.keys import Keys
 
 load_dotenv()
 start_url = "https://myfit4less.gymmanager.com/portal/login.asp"
-two_days_date = str(datetime.now().date() + timedelta(days=(os.getenv("DAYS") or 2)))
+booking_date = str(datetime.now().date() + timedelta(days=int(os.getenv("DAYS")) or 2))
 driver = None
 
 chrome_options = Options()
@@ -33,7 +33,7 @@ try:
 
     # Switch to 2 days ahead
     driver.find_element_by_id("btn_date_select").click()  # day selector
-    driver.find_element_by_id("date_" + two_days_date).click()  # select 2 days ahead from now
+    driver.find_element_by_id("date_" + booking_date).click()  # select 2 days ahead from now
     driver.implicitly_wait(5)
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
     driver.implicitly_wait(3)
