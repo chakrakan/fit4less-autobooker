@@ -5,10 +5,10 @@ orbs:
 
 jobs:
   autobooker:
+    working_directory: ~/repo
     docker:
       - image: circleci/python:3.7.3-browsers
 
-      working_directory: ~/repo
 
     steps:
       - browser-tools/install-chrome
