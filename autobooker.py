@@ -28,11 +28,13 @@ try:
     driver.implicitly_wait(5)
     email_input.send_keys(os.getenv("F4L_LOGIN"))
     password_input.send_keys(os.getenv("F4L_PASSWORD"))
+    driver.implicitly_wait(5)
     password_input.send_keys(Keys.ENTER)
     driver.implicitly_wait(5)
 
     # Switch to 2 days ahead
     driver.find_element_by_id("btn_date_select").click()  # day selector
+    driver.implicitly_wait(3)
     driver.find_element_by_id("date_" + booking_date).click()  # select 2 days ahead from now
     driver.implicitly_wait(5)
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
