@@ -2,7 +2,6 @@ from dotenv import load_dotenv
 import os
 from datetime import datetime, timedelta
 from selenium import webdriver
-import logging
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 
@@ -32,12 +31,12 @@ try:
     driver.implicitly_wait(5)
     password_input.send_keys(Keys.ENTER)
     driver.implicitly_wait(5)
-    logging.info("Logged In!")
+    print("Logged In!")
 
     date_select = driver.find_element_by_id("btn_date_select")
 
     if not date_select.is_displayed():
-        logging.info("Already booked max slots")
+        print("Already booked max slots")
         driver.quit()
 
     date_select.click()  # day selector
@@ -53,17 +52,17 @@ try:
 
     for slot in available_slots:
         if str(os.getenv("TIME_SLOT")) in slot.text:
-            logging.info("Time slot found: ", slot.text)
+            print("Time slot found: ", slot.text)
             slot.find_element_by_xpath('..').click()
             driver.implicitly_wait(3)
             driver.find_element_by_id("dialog_book_yes").click()
             driver.implicitly_wait(5)
-            logging.info("Reservation done!")
+            print("Reservation done!")
             break
         else:
-            logging.info("Skipping slot:", slot.text)
+            print("Skipping slot:", slot.text)
 
 except Exception as err:
-    logging.warning(str(err))
+    print(str(err))
 finally:
     driver.quit()
