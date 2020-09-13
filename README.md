@@ -8,9 +8,23 @@ Fit4Less allows you to book time-slots either daily, one-day ahead, or two-days 
 
 ## How?
 
-You can fork this repo if you want to set-up your own cron job that books time-slots for you everyday, and set up the following environment variables for the project on CircleCI
+1. Fork this repo
+2. Set it up as a project on CircleCI
+3. Check project settings on CircleCI and configure Environment Variables as following:
+```shell script
+WEBDRIVER_PATH=/usr/local/bin/chromedriver
+DAYS=2
+F4L_LOGIN=your email
+F4L_PASSWORD=your password
+TIME_SLOT=10:00 AM
+ENVIRONMENT=prod
+```
+**Notes** 
+> You can change `DAYS` between 2, 1, 0 (check .env.example)
+> Please keep `WEBDRIVER_PATH` exactly as shown above since that's the path to driver in the docker container
+> `TIME_SLOT` doesn't need quotes for the space between the time and AM/PM as opposed to running it locally
 
-> ToDo: add instructions
+
 
 #### Local
 
