@@ -2,6 +2,7 @@ from dotenv import load_dotenv
 import os
 from datetime import datetime, timedelta
 from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 
@@ -30,7 +31,7 @@ try:
     password_input.send_keys(os.getenv("F4L_PASSWORD"))
     driver.implicitly_wait(5)
     password_input.send_keys(Keys.ENTER)
-    driver.implicitly_wait(5)
+    WebDriverWait(driver, 10)
 
     # Switch to 2 days ahead
     driver.find_element_by_id("btn_date_select").click()  # day selector
