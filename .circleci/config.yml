@@ -27,7 +27,12 @@ jobs:
 
 workflows:
   version: 2
-  nightly:
+
+  test:
+    jobs:
+      - build
+
+  poll:
     triggers:
       - schedule:
           cron: "05 0 * * *"
