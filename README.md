@@ -20,10 +20,10 @@ TIME_SLOT=10:00 AM
 ENVIRONMENT=prod
 ```
 **Notes** 
-> You can change `DAYS` between 2, 1, 0 (check .env.example)
-> Please keep `WEBDRIVER_PATH` exactly as shown above since that's the path to driver in the docker container
-> `TIME_SLOT` doesn't need quotes for the space between the time and AM/PM as opposed to running it locally
-
+> - You can change `DAYS` between 2, 1, 0 (check .env.example)  
+> - Please keep `WEBDRIVER_PATH` exactly as shown above since that's the path to driver in the docker container  
+> - `TIME_SLOT` doesn't need quotes for the space between the time and AM/PM as opposed to running it locally  
+4. Run the build on CircleCI and check the logs under Instal & Run for the build steps
 
 
 #### Local
