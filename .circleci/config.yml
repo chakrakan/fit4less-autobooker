@@ -7,7 +7,7 @@ jobs:
   build:
     working_directory: ~/repo
     docker:
-      - image: circleci/python:3.7.3-browsers
+      - image: circleci/python:3.8.3-browsers
 
 
     steps:
