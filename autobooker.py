@@ -33,13 +33,7 @@ try:
     driver.implicitly_wait(5)
     print("Logged In!")
 
-    date_select = driver.find_element_by_id("btn_date_select")
-
-    if not date_select.is_displayed():
-        print("Already booked max slots")
-        driver.quit()
-
-    date_select.click()  # day selector
+    driver.find_element_by_id("btn_date_select").click()  # day selector
     driver.implicitly_wait(3)
     driver.find_element_by_id("date_" + booking_date).click()  # select 2 days ahead from now
     driver.implicitly_wait(5)
