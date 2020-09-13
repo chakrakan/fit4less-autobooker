@@ -1,5 +1,7 @@
 # fit4less-autobooker
 
+[![Fit4Less-Autobooker](https://circleci.com/gh/chakrakan/fit4less-autobooker.svg?style=svg)](https://circleci.com/gh/chakrakan/fit4less-autobooker)
+
 A Selenium automation script set up on a cron job every midnight to book a time-slot for workouts everyday at the Fit4Less gym.  
 
 ## Why?
