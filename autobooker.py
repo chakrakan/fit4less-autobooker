@@ -8,7 +8,6 @@ from selenium.webdriver.common.keys import Keys
 load_dotenv()
 start_url = "https://myfit4less.gymmanager.com/portal/login.asp"
 booking_date = str(datetime.now().date() + timedelta(days=int(os.getenv("DAYS")) or 2))
-driver = None
 
 chrome_options = Options()
 
