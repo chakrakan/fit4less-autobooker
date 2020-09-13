@@ -4,7 +4,7 @@ orbs:
   browser-tools: circleci/browser-tools@1.0.1
 
 jobs:
-  autobooker:
+  build:
     working_directory: ~/repo
     docker:
       - image: circleci/python:3.7.3-browsers
