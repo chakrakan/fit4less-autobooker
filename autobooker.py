@@ -7,7 +7,7 @@ from selenium.webdriver.common.keys import Keys
 
 load_dotenv()
 start_url = "https://myfit4less.gymmanager.com/portal/login.asp"
-two_days_date = str(datetime.now().date() + timedelta(days=2))
+two_days_date = str(datetime.now().date() + timedelta(days=(os.getenv("DAYS") or 2)))
 driver = None
 
 chrome_options = Options()
