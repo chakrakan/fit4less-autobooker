@@ -4,7 +4,7 @@ jobs:
   build:
     working_directory: ~/repo
     docker:
-      - image: circleci/python:3.8.5-browsers
+      - image: circleci/python:3.8.6-browsers
 
 
     steps:
