@@ -44,7 +44,7 @@ try:
         "time-slot-box")
 
     for slot in available_slots:
-        if str(os.getenv("TIME_SLOT")) in slot.text:
+        if str(os.getenv("TIME_SLOT")) == slot.text:
             print("Time slot found: ", slot.text)
             slot.find_element_by_xpath('..').click()
             driver.implicitly_wait(3)
