@@ -33,7 +33,7 @@ ENVIRONMENT=prod
 > - `F4L_CLUB` is optional and not needed as the script will book time-slots for the default selected club under your account. However, if you want to book time-slots at a different club, please add this field and your desired club name in ALL CAPS, e.g. `"WATERLOO NORTHFIELD"`. For a list of ALL CLUBS check here: [CLUBS](https://github.com/chakrakan/fit4less-autobooker/wiki) 
 > - You can change `DAYS` between 2, 1, 0 (check .env.example)  
 > - Please keep `WEBDRIVER_PATH` exactly as shown above since that's the path to driver in the docker container
-> - there's no error handling so it either reserves your slot if it finds the timing, or you'll see an exception thrown, or skipped timings in your CircleCI logs
+> - there's minimal error handling so it either reserves your slot if it finds the timing, or you'll see an exception thrown, or skipped timings in your CircleCI logs
 > - Skipped timings means it didn't find your time slot, Exception means you've already booked max amount of slots!
 
 
