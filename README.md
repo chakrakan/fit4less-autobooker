@@ -4,6 +4,8 @@
 
 A Selenium automation script set up on a cron job every midnight to book a time-slot for workouts everyday at any Fit4Less gym.  
 
+UPDATE: As of Feb 25, 2021 the script works! If you have trouble setting things up, feel free to reach out to me on discord at kan#0979
+
 > **NOTE**  
 > I've temporarily suspended my Fit4Less gym membership due to COVID, and as such, won't be able to maintain/add features for now since I no longer have access to the platform. If the script stops working, please make an issue and also don't be afraid to make forks of this repo and create pull requests if you can fix/work on any of them. Lastly, if this project has helped you, feel free to ⭐️ it!  
 
