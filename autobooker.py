@@ -1,5 +1,6 @@
 from dotenv import load_dotenv
 import os
+import time
 from datetime import datetime, timedelta
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -8,18 +9,20 @@ from selenium.webdriver.common.keys import Keys
 load_dotenv()
 # set permissions for local chromedriver to test locally
 start_url = "https://myfit4less.gymmanager.com/portal/login.asp"
+# print(str(timedelta(days=int(os.getenv("DAYS")) or 2)))
 booking_date = str(datetime.now().date() + timedelta(days=int(os.getenv("DAYS")) or 2))
 chrome_options = Options()
 
 # first condition just for debugging locally
-if os.getenv("ENVIRONMENT") == "dev":
-    chrome_options.add_argument("--kiosk") # use this for debugging on Linux/Mac
-    # chrome_options.add_argument("--window-size=1920,1080") # use this for debugging on Windows
-else:
-    chrome_options.add_argument("--headless")
+# if os.getenv("ENVIRONMENT") == "dev":
     # chrome_options.add_argument("--kiosk") # use this for debugging on Linux/Mac
-    chrome_options.add_argument("--window-size=3072,1920") # use this for debugging on Windows 3072 x 1920
+    # # chrome_options.add_argument("--window-size=1920,1080") # use this for debugging on Windows
+# else:
+    # chrome_options.add_argument("--headless")
+    # # chrome_options.add_argument("--kiosk") # use this for debugging on Linux/Mac
+    # # chrome_options.add_argument("--window-size=3072,1920") # use this for debugging on Windows 3072 x 1920
 
+# driver = webdriver.Chrome("/home/shawn/python/fit4less-autobooker/utils/chromedriver")
 driver = webdriver.Chrome(os.getenv("WEBDRIVER_PATH"), options=chrome_options)
 driver.get(start_url)
 
@@ -32,8 +35,14 @@ try:
     password_input.send_keys(os.getenv("F4L_PASSWORD"))
     driver.implicitly_wait(5)
     password_input.send_keys(Keys.ENTER)
-    driver.implicitly_wait(5)
-    print("Logged In!")
+    driver.implicitly_wait(9)
+
+    # check if login is successful
+    if driver.find_element_by_class_name("login-box"):
+        print("login failed")
+        raise RuntimeError
+    else:
+        print("Logged In!")
 
     # Find your club
     if "F4L_CLUB" in os.environ:
@@ -75,5 +84,6 @@ try:
 
 except Exception as err:
     print(str(err))
+    time.sleep(3)
 finally:
     driver.quit()
